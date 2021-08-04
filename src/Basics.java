@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Basics {
 
     public static void main(String[] args) {
+
         //Create driver object for Chrome browser
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -34,9 +35,11 @@ public class Basics {
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals("https://www.selenium.dev/documentation/en/", currentUrl);
 
+        //Navigate back to Google.com
+        driver.navigate().back();
+
         //Close browser
         driver.close();
-
 
     }
 }

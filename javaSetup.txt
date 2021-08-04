@@ -1,0 +1,50 @@
+##How to set up and configure Java and Selenium##
+
+1. Download and install the latest version of Java JDK
+
+    1. Go to https://www.oracle.com/java/technologies/javase-jdk16-downloads.html
+    2. Select the latest version for Windows 64bit
+    3. Download and install
+    4. Open the file location (ex: C:\Program Files\Java\jdk-16.0.2) and copy the path
+
+2. Configure environment variables (Windows)
+
+    1. Hit Windows Key and type "Environment Variables" in the search
+    2. Click "Edit the system environment variables" Control Panel link
+    3. Click "Environment Variables" button
+    4. Click New under the "System Variables" section
+    5. Set the Variable Name to "JAVA_HOME"
+    6. Paste the file location where Java was installed in the Variable Value field (ex: C:\Program Files\Java\jdk-16.0.2)
+    7. Click OK
+    8. Select "Path" under System Variables section and click Edit
+    9. Click New
+    10. Type "%JAVA_HOME%\bin"
+    11. Hit Enter, then click OK
+
+3. Confirm that Java installed successfully
+
+    1. Hit Windows key and type "cmd" to open Command Prompt
+    2. Type "java - version" and hit enter
+    3. The version number should be displayed
+
+3. Download and configure your IDE of choice
+
+    1. Download and install an IDE (I use IntelliJ Community edition - https://www.jetbrains.com/idea/download/#section=windows)
+    2. Create a new workspace
+    3. Create a new project (select the JDK you installed when prompted)
+    4. Create a new Java class file to hold your first test cases
+
+4. Download and configure Selenium
+
+    1. Download Selenium JAR files (https://www.selenium.dev/downloads/)
+    2. Extract the JAR files from the zipped folder
+    3. Copy the path to the files
+    4. In IntelliJ, go to File -> Project Structure (your IDE may be different)
+    5. Click the Libraries tab
+    6. Click the + button
+    7. Paste the filepath for your two Selenium JAR files
+    8. Open the "lib" folder inside the folder you extracted in step 2
+    9. Copy and paste the filepath
+    10. Click the + button
+    11. Paste the filepath for the JAR files inside the /lib folder
+    12. Click OK
