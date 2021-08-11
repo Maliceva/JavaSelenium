@@ -1,0 +1,32 @@
+QA Automation Locator Cheat Sheet
+
+1. What is the difference between Relative and Absolute XPath?
+
+	Relative XPath directly identifies the element by attribute (ID, class, name, etc.) without first locating a parent element
+		//input[@name='search']
+
+	Absolute XPath traverses through a parent element to find a specific child element
+		//div[@class='RNNXgb']/div/div[2]/input
+
+
+2. How do you traverse to a sibling element from another sibling using XPath?
+
+	Find the relative XPath of the common parent element, then use /following-sibling:: to locate the sibling using the tagName
+
+	//*@id='tablist1-tab1']/following-sibling::li[2]
+
+
+3. How do you traverse back to a parent element from a child element using XPath?
+
+	Find the relative Xpath of a child element, then use /parent:: to locate the parent using the tagName
+
+	//*@id='tablist1-tab1']/parent::ul
+
+
+4. How do you identify an element from text?
+
+	Use the regular expression //* to find any tag then use [contains(text(), '')] to locate the text displayed on the page
+
+	//*[contains(text(),'Your text goes here')]"
+
+	Not ideal because text may change in the future
