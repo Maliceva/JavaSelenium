@@ -83,5 +83,6 @@ public class Dropdowns {
             }
         }
 
+        driver.close();
     }
 }
