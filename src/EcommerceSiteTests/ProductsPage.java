@@ -15,7 +15,8 @@ import java.util.List;
 // When the loop reaches the product name "Cucumber" and "Cauliflower", click Add to Cart           //
 // -------------------------------------------------------------------------------------------------*/
 
-public class AddToCart {
+public class ProductsPage {
+
     public static void main (String[] args) throws InterruptedException {
 
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
@@ -24,24 +25,30 @@ public class AddToCart {
         // Products we expect to be in the cart at the end of the test
         String[] groceriesNeeded = {"Cucumber","Cauliflower","Beetroot","Carrot"};
 
-        int j = 0;
-
         driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
         Thread.sleep(3000);
+
+        addItems(driver, groceriesNeeded);
+
+        driver.close();
+    }
+
+    public static void addItems(WebDriver driver, String[] groceriesNeeded) {
+        //Create a variable to iterate inside the loop
+        int j = 0;
 
         // Find all the product names on the page and save them as a list
         List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
 
-
         for (int i=0;i<products.size();i++) {
 
-           // productName must be formatted in order to remove " - 1 Kg" in order to match the groceriesNeeded text
-           String[] productName = products.get(i).getText().split("-");
-           String formattedProductName = productName[0].trim();
+            // productName must be formatted in order to remove " - 1 Kg" in order to match the groceriesNeeded text
+            String[] productName = products.get(i).getText().split("-");
+            String formattedProductName = productName[0].trim();
 
-           // Check whether the name you extracted is in the groceriesNeeded list
-           // Convert array into an arraylist to search more easily
-           List groceryList = Arrays.asList(groceriesNeeded);
+            // Check whether the name you extracted is in the groceriesNeeded list
+            // Convert array into an arraylist to search more easily
+            List groceryList = Arrays.asList(groceriesNeeded);
 
             if (groceryList.contains(formattedProductName)) {
                 j++;
@@ -54,7 +61,6 @@ public class AddToCart {
                 }
             }
         }
-
-        driver.close();
     }
 }
+
